@@ -44,10 +44,10 @@ def directors_totals(nds)
     while column_index < nds[row_index].length do
       inner_len = nds[row_index][:movies][column_index].length
       inner_index = 0
+      result[nds[row_index][:name]] = 0
       while inner_index < inner_len do 
         total_insight += nds[row_index][:movies][inner_index][:worldwide_gross]
-        name = nds[inner_index][:name]
-        result = [{name: name, worldwide_gross: total_insight }]
+        result
         inner_index += 1
       end
       column_index +=1
