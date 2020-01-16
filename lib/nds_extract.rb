@@ -37,32 +37,12 @@ pp nds
 # end
 def directors_totals(nds)
    result = {}
-  row_index = 0
-  total_insight = 0
-  while row_index < nds.length do
-    column_index = 0
-    while column_index < nds[row_index].length do
-      inner_len = nds[row_index][:movies][column_index].length
-      inner_index = 0
-      result[nds[row_index][:name]] = 0
-      while inner_index < inner_len do 
-        total_insight += nds[row_index][:movies][inner_index][:worldwide_gross]
-        inner_index += 1
-      end
-      column_index +=1
+  nds.each do |director|
+    result[director[:name]] = 0
+    director[:movies].each do |movie|
+      result[director[:name]] += movie[:worldwide_gross]
     end
-    row_index +=1
   end
-  pp result
-  
- 
-  
-  # nds.each do |director|
-  #   result[director[:name]] = 0
-  #   director[:movies].each do |movie|
-  #     result[director[:name]] += movie[:worldwide_gross]
-  #   end
-  # end
   
   result
 end
