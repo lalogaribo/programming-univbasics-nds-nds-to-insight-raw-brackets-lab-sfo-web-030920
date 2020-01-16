@@ -49,7 +49,6 @@ def directors_totals(nds)
         total_insight += nds[row_index][:movies][inner_index][:worldwide_gross]
         inner_index += 1
       end
-      result += total_insight
       column_index +=1
     end
     row_index +=1
